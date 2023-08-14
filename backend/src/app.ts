@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import bcrypt from "bcrypt";
+import cors from "cors";
 import jwt from "jsonwebtoken";
 import { connectDatabase } from "./db/db";
 import { User } from "./models/user";
@@ -8,7 +9,9 @@ import { errorHandler } from "./middlewares/error";
 
 dotenv.config();
 const app = express();
+app.use(cors());
 app.use(express.json());
+
 const port = 3000;
 const axios = require("axios").default;
 
